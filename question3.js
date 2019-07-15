@@ -5,6 +5,7 @@ var hexSection = document.getElementById("hex_input");
 var processSelected = null;
 var formSubmit = document.getElementById("formSubmit");
 var conversionForm = document.getElementById("conversionForm");
+var finalResult = "nothing";
 
 
 rgbSelected.addEventListener("click", function() {
@@ -20,10 +21,10 @@ hexSelected.addEventListener("click", function() {
 });
 
 formSubmit.addEventListener("click", function() {
-    var conversionResults = document.getElementById("conversionResults");
-    conversionForm.classList.add("hide");
-    conversionResults.classList.remove("hide");
-    conversionResults.innerHTML = conversionResult;
+    conversionResult();
+    var conversionResultsDiv = document.getElementById("conversionResults");
+    conversionResultsDiv.classList.remove("hide");
+    conversionResultsDiv.innerHTML = `${finalResult}`;
 
 });
 
@@ -44,7 +45,8 @@ var rgbToHexCombined = function () {
     var converted2 = rgbToHex(rbg2Input);
     var converted3 = rgbToHex(rbg3Input);
     var hexArray = [converted1,converted2,converted3]
-    return `#${hexArray.join()}`
+    finalResult = `#${hexArray.join()}`
+    return false;
 }
 
   var hextoRGB = function (hex) {
@@ -82,16 +84,20 @@ var rgbToHexCombined = function () {
     var rgb2 = (Number(swapLetters[2]) * 16) + Number(swapLetters[3]);
     var rgb3 = (Number(swapLetters[4]) * 16) + Number(swapLetters[5]);
     
-    return `${rgb1},${rgb2},${rgb3}`
+    finalResult = `${rgb1},${rgb2},${rgb3}`
+    return false;
+    
 }
 
 var conversionResult = function () {
     var hexInput = document.getElementById("hexinput").value;
     if(processSelected === "RGB") {
-        return hextoRGB(hexInput);
+        hextoRGB(hexInput);
+        return false;
     } else {
-        return rgbToHexCombined();
-    }
+        rgbToHexCombined();
+        return false;
+    } 
 };
 
 
