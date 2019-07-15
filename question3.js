@@ -6,7 +6,7 @@ var processSelected = null;
 var formSubmit = document.getElementById("formSubmit");
 var conversionForm = document.getElementById("conversionForm");
 var finalResult = "nothing";
-
+//
 
 rgbSelected.addEventListener("click", function() {
     rgbSection.classList.remove("hide");
