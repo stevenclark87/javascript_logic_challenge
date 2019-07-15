@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>RGB and Hex Converter</title>
+</head>
+<body>
+    <div id="conversion_form">
+    <form>
+        <h1>Convert to:</h1>
+        <input id="process_rgb" type="radio" name="process" value="RGB"> RGB<br>
+        <input id="process_hex" type="radio" name="process" value="Hex"> Hex<br><br>
+        <div id="rgb_inputs" class="hide">
+            <h2>Enter RBG Values:</h2><br>
+            <input id="rbg1input" type="number" name="rbg1input" size="5" maxlength="3" min="0" max="255">
+            <input id="rbg2input" type="number" name="rbg2input" size="5" maxlength="3" min="0" max="255">
+            <input id="rbg3input" type="number" name="rbg3input" size="5" maxlength="3" min="0" max="255">
+        </div>
+        <div id="hex_input" class="hide">
+                <h2>Enter Hex:</h2><br>
+                #<input id="hexinput" type="text" name="hexinput" maxlength="6">
+            </div>
+        <br>
+        <input id="formSubmit" type="submit" value="submit">
+    </form>
+</div>
+<div id="conversionResults" class="hide"></div>
+<script src="question3.js"></script>
+</body>
+</html>
